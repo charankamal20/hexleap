@@ -24,3 +24,37 @@ export const TeamData: TeamCardProps[] = [
         image: "/images/lasVegasAviators.png"
     }
 ]
+
+
+export const CollectionData: CollectionCard[] = [
+  {
+    team_name: "Las Vegas Aviators",
+    date: 15,
+    image: "/images/Ticket_Mockup 3.png",
+    month: "OCT",
+    time: "4:30 PM",
+    day: "SUN",
+    location: "Las Vegas Ballpark, Las Vegas, Nevada",
+    action: "Take Flight Collection",
+  },
+  {
+    team_name: "Sacramento River Cats",
+    date: 15,
+    image: "/images/unnamed 1.png",
+    month: "OCT",
+    time: "4:30 PM",
+    day: "SUN",
+    location: "Sutter Health Park, Sacramento, California",
+    action: "Orange Collection",
+  },
+  {
+    team_name: "Las Vegas Aviators",
+    date: 15,
+    image: "/images/Ticket_Mockup 3.png",
+    month: "OCT",
+    time: "4:30 PM",
+    day: "SUN",
+    location: "Las Vegas Ballpark, Las Vegas, Nevada",
+    action: "Take Flight Collection",
+  },
+];
