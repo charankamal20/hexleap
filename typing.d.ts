@@ -1,4 +1,5 @@
 /**
+import CollectionCard from './components/CollectionCard';
  * Represents a team card component.
  */
 type TeamCardProps = {
@@ -14,3 +15,14 @@ type AdvertisementCard = {
   title: string;
   description: string;
 };
+
+type CollectionCard = {
+  team_name: string;
+  date: number;
+  image: string | StaticImport;
+  month: string;
+  time: string;
+  day: string;
+  location: string;
+  action: string;
+}
