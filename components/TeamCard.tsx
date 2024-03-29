@@ -8,10 +8,9 @@ import React from "react";
  */
 const TeamCard = (props: TeamCardProps) => {
   return (
-    <div className="p-2 text-black w-60 bg-background-secondary dark:bg-background-dark-secondary shadow-lg">
+    <div className="p-2 transition-all duration-500 hover:shadow-2xl dark:text-white text-black w-60 bg-background-secondary dark:bg-background-dark-secondary shadow-lg">
       <div className="">
-
-        <div className="border overflow-hidden h-96 w-56 drop-shadow-lg">
+        <div className="overflow-hidden h-96 w-56 drop-shadow-lg">
           <Image
             width={400}
             height={400}
@@ -24,14 +23,18 @@ const TeamCard = (props: TeamCardProps) => {
           <div className="font-medium text-lg">
             <h2>{props.teamName}</h2>
           </div>
-          <div className="text-xs flex p-2 justify-between text-gray-500 bg-accent dark:bg-background-dark-secondary">
+          <div className="text-xs flex p-2 justify-between dark:text-gray-400 text-gray-500 bg-accent dark:bg-dark-accent transition-all">
             <div className="w-full space-y-1">
               <h3>Total Events</h3>
-              <p className="text-sm font-semibold text-black">{props.totalEvents} Events</p>
+              <p className="text-sm font-semibold text-black dark:text-white">
+                {props.totalEvents} Events
+              </p>
             </div>
             <div className="w-full space-y-1">
               <h3>Sport</h3>
-              <p className="text-sm font-semibold text-black">{props.sport}</p>
+              <p className="text-sm font-semibold text-black dark:text-white">
+                {props.sport}
+              </p>
             </div>
           </div>
         </div>

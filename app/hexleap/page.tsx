@@ -4,6 +4,8 @@ import { CollectionData, TeamData } from "@/constants/data";
 import AdvertisementCard from "../../components/AdvertisementCard";
 import CollectionCard from "@/components/CollectionCard";
 import Image from "next/image";
+import { FaAngleLeft } from "react-icons/fa6";
+import { FaAngleRight } from "react-icons/fa6";
 
 const page = () => {
   return (
@@ -32,14 +34,14 @@ const page = () => {
           />
         </div>
 
-        <div className="w-full justify-center items-center flex my-10">
-          <button className="bg-light-blue text-sm text-white font-bold w-32 h-12 flex justify-center items-center rounded">
+        <div className="w-full justify-center items-center flex my-12 mt-16">
+          <button className="active:scale-90 transition-all bg-light-blue text-sm text-white font-bold w-32 h-12 flex justify-center items-center rounded">
             See More
           </button>
         </div>
       </section>
 
-      <section className=" mb-20 p-10 w-full bg-gradient-to-b from-gradient-top to-gradient-bottom dark:from-dark-gradient-top dark:to-dark-gradient-bottom">
+      <section className="pt-16 mb-20 p-10 w-full bg-gradient-to-b from-gradient-top to-gradient-bottom dark:from-dark-gradient-top dark:to-dark-gradient-bottom">
         <div>
           <div className="mx-6 gap-y-4 flex flex-col justify-center items-center w-full">
             <h1 className="text-5xl font-bold tracking-normal">
@@ -51,13 +53,17 @@ const page = () => {
               unforgettable experience. Grab yours today!
             </p>
           </div>
-          <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-3 mt-10 w-fit mx-auto">
-            {CollectionData &&
-              CollectionData.slice(0, 3).map((collection, index: number) => (
-                <div
-                      key={index}
-                      className={`${index === 2 ? 'hidden lg:block' : ''} `}
-                >
+          <div className="px-10 flex justify-between items-center">
+            <button className="border-light-blue h-fit border px-0.5 py-2">
+              <FaAngleLeft className="text-light-blue size-6" />
+            </button>
+            <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-3 mt-10 w-fit mx-auto">
+              {CollectionData &&
+                CollectionData.slice(0, 3).map((collection, index: number) => (
+                  <div
+                    key={index}
+                    className={`${index === 2 ? "hidden lg:block" : ""} `}
+                  >
                     <CollectionCard
                       team_name={collection.team_name}
                       date={collection.date}
@@ -68,8 +74,12 @@ const page = () => {
                       month={collection.month}
                       time={collection.time}
                     />
-                </div>
-              ))}
+                  </div>
+                ))}
+            </div>
+            <button className="border-light-blue h-fit border px-0.5 py-2">
+              <FaAngleRight className="text-light-blue size-6" />
+            </button>
           </div>
         </div>
       </section>
