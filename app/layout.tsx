@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import ToggleButton from "@/components/ThemeToggle";
 import Head from "next/head";
+import { Toaster } from "@/components/ui/sonner"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <ToggleButton />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

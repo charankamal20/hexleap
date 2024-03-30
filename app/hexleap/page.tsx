@@ -14,6 +14,8 @@ import "@/components/Carousel/css/base.css";
 import "@/components/Carousel/css/sandbox.css";
 import "@/components/Carousel/css/embla.css";
 import { getSportsData } from "@/actions/getSportsData";
+import { toast } from "sonner";
+import { create } from "domain";
 
 const page = async () => {
   const OPTIONS: EmblaOptionsType = { align: "center", loop: true };
