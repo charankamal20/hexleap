@@ -4,8 +4,19 @@ import { CollectionData, TeamData } from "@/constants/data";
 import AdvertisementCard from "../../components/AdvertisementCard";
 import CollectionCard from "@/components/CollectionCard";
 import Image from "next/image";
+
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
+
+import { EmblaOptionsType } from "embla-carousel";
+import EmblaCarousel from "@/components/Carousel/Carousel";
+import "@/components/Carousel/css/base.css";
+import "@/components/Carousel/css/sandbox.css";
+import "@/components/Carousel/css/embla.css";
+
+const OPTIONS: EmblaOptionsType = { align: "center", loop: true };
+const SLIDE_COUNT = 6;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 const page = () => {
   return (
@@ -15,16 +26,20 @@ const page = () => {
           <h1 className="font-bold text-2xl">Sports</h1>
           <div className="h-[2px] rounded-full w-full bg-purple-line"></div>
         </div>
-        <div className="mx-auto gap-x-3 grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-8">
+        <div className="mx-auto gap-x-3 gap-y-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-8">
           {TeamData &&
             TeamData.slice(0, 4).map((team, index: number) => (
-              <TeamCard
+              <div
+                className={`${index === 3 ? "hidden md:block" : ""}`}
                 key={index}
-                teamName={team.teamName}
-                totalEvents={team.totalEvents}
-                sport={team.sport}
-                image={team.image}
-              />
+              >
+                <TeamCard
+                  teamName={team.teamName}
+                  totalEvents={team.totalEvents}
+                  sport={team.sport}
+                  image={team.image}
+                />
+              </div>
             ))}
           {/* Advertisement */}
           <AdvertisementCard
@@ -41,45 +56,20 @@ const page = () => {
         </div>
       </section>
 
-      <section className="pt-16 mb-20 p-10 w-full bg-gradient-to-b from-gradient-top to-gradient-bottom dark:from-dark-gradient-top dark:to-dark-gradient-bottom">
+      <section className="pt-16 mb-20 px-10 w-full bg-gradient-to-b from-gradient-top to-gradient-bottom dark:from-dark-gradient-top dark:to-dark-gradient-bottom">
         <div>
-          <div className="mx-6 gap-y-4 flex flex-col justify-center items-center w-full">
-            <h1 className="text-5xl font-bold tracking-normal">
+          <div className="gap-y-4 flex flex-col justify-center items-center w-full">
+            <h1 className="text-5xl text-center font-bold tracking-normal">
               Collection Spotlight
             </h1>
-            <p className="w-3/4 text-center text-sm ">
+            <p className="w-full md:w-3/4 text-center md:text-sm text-xs">
               Discover extraordinary moments with our Spotlight Collection
               metatickets—exclusive access to premium events for an
               unforgettable experience. Grab yours today!
             </p>
           </div>
-          <div className="px-10 flex justify-between items-center">
-            <button className="border-light-blue h-fit border px-0.5 py-2">
-              <FaAngleLeft className="text-light-blue size-6" />
-            </button>
-            <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-3 mt-10 w-fit mx-auto">
-              {CollectionData &&
-                CollectionData.slice(0, 3).map((collection, index: number) => (
-                  <div
-                    key={index}
-                    className={`${index === 2 ? "hidden lg:block" : ""} `}
-                  >
-                    <CollectionCard
-                      team_name={collection.team_name}
-                      date={collection.date}
-                      day={collection.day}
-                      location={collection.location}
-                      action={collection.action}
-                      image={collection.image}
-                      month={collection.month}
-                      time={collection.time}
-                    />
-                  </div>
-                ))}
-            </div>
-            <button className="border-light-blue h-fit border px-0.5 py-2">
-              <FaAngleRight className="text-light-blue size-6" />
-            </button>
+          <div className="md:px-4 lg:px-10 mt-10 pb-10  md:flex justify-between items-center">
+            <EmblaCarousel slides={SLIDES} options={OPTIONS} />
           </div>
         </div>
       </section>
