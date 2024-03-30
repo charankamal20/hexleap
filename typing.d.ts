@@ -9,6 +9,10 @@ type TeamCardProps = {
   image: StaticImport; // The image of the team.
 };
 
+type PropType = {
+  slides: number[];
+  options?: EmblaOptionsType;
+};
 
 type AdvertisementCard = {
   image: string | StaticImport;

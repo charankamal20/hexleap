@@ -24,7 +24,7 @@ const TeamCard = (props: TeamCardProps) => {
             <h2>{props.teamName}</h2>
           </div>
           <div className="text-[10px] md:text-xs flex p-2 justify-between dark:text-gray-400 text-gray-500 bg-accent dark:bg-dark-accent transition-all">
-            <div className="w-full space-y-1">
+            <div className="w-full gap-y-1 flex flex-col justify-between">
               <h3>Total Events</h3>
               <p className="text-xs md:text-sm font-semibold text-black dark:text-white">
                 {props.totalEvents} Events
