@@ -13,12 +13,25 @@ import EmblaCarousel from "@/components/Carousel/Carousel";
 import "@/components/Carousel/css/base.css";
 import "@/components/Carousel/css/sandbox.css";
 import "@/components/Carousel/css/embla.css";
+import { getSportsData } from "@/actions/getSportsData";
 
-const page = () => {
+const page = async () => {
   const OPTIONS: EmblaOptionsType = { align: "center", loop: true };
   const SLIDE_COUNT = 6;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
+  try {
+    const response = await getSportsData();
+    if (response.success) {
+      console.log(response.data);
+    } else {
+      console.log(response.data.message);
+      return;
+    }
+    const TeamData = response.data.data;
+  } catch (error) {
+    console.error(error);
+  }
 
   return (
     <main className="w-full max-w-7xl mx-auto px-4">
@@ -46,6 +59,7 @@ const page = () => {
                 />
               </div>
             ))}
+            {!TeamData && <p>No data found!</p>}
           {/* Advertisement */}
           <AdvertisementCard
             title="Advertisement title"
