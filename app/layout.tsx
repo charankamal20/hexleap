@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import ToggleButton from "@/components/ThemeToggle";
+import Head from "next/head";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,7 +16,12 @@ export const metadata: Metadata = {
   title: "HexLeap",
   description:
     "HexLeap is a sports platform that connects sports enthusiasts with their favorite teams and players.",
-  viewport: "width=device-width, initial-scale=1",
+  icons: [
+    {
+      rel: "icon",
+      url: "/favicon.ico",
+    },
+  ],
 };
 
 export default function RootLayout({
