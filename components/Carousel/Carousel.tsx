@@ -9,10 +9,10 @@ import {
   usePrevNextButtons,
 } from "./EmblaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
-import { CollectionData } from "@/constants/data";
 import CollectionCard from "../CollectionCard";
 import Autoplay from "embla-carousel-autoplay";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import axios from "axios";
 
 
 /**
@@ -30,6 +30,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     Autoplay({ playOnInit: true, delay: 4000, stopOnInteraction: false}),
   ]);
 
+  const [CollectionData, setCollectionData] = useState<CollectionCard[] | undefined>();
   const [isPlaying, setIsPlaying] = useState(true);
 
   const {
@@ -56,6 +57,28 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   );
 
 
+  useEffect(() => {
+    const fetchCollectionData = async () => {
+      try {
+        const response = await axios.get("/api/collections");
+        if (response.data.success) {
+          console.log(response.data.data);
+        } else {
+          console.log(response.data.message);
+          return;
+        }
+        console.log(response.data);
+        const CollectionData = response.data.data;
+        setCollectionData(CollectionData);
+      } catch (error) {
+        console.error({error});
+      }
+    }
+
+    fetchCollectionData();
+  }, [])
+
+
   return (
     <>
       <button
@@ -69,7 +92,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <section className="embla w-full">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
-              {CollectionData.map((item, index) => (
+              {CollectionData && CollectionData.map((item, index) => (
                 <div
                   className="flex justify-center items-center embla__slide"
                   key={index}
