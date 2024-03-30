@@ -2,7 +2,6 @@
 import { useTheme } from "next-themes";
 import { IoIosSunny } from "react-icons/io";
 import { FaCloudMoon } from "react-icons/fa";
-import { useEffect } from "react";
 
 /**
  * Renders a toggle button for switching between light and dark themes.
