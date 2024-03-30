@@ -14,11 +14,15 @@ import CollectionCard from "../CollectionCard";
 import Autoplay from "embla-carousel-autoplay";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
 
+/**
+ * Represents a carousel component that displays a collection of slides.
+ *
+ * @component
+ * @param {number[]} slides - An array of slide numbers.
+ * @param {EmblaOptionsType} [options] - Optional configuration options for the carousel.
+ * @returns {JSX.Element} The rendered carousel component.
+ */
 const EmblaCarousel: React.FC<PropType> = (props) => {
 
   const { slides, options } = props;

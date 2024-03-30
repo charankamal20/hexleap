@@ -14,14 +14,15 @@ import "@/components/Carousel/css/base.css";
 import "@/components/Carousel/css/sandbox.css";
 import "@/components/Carousel/css/embla.css";
 
-const OPTIONS: EmblaOptionsType = { align: "center", loop: true };
-const SLIDE_COUNT = 6;
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-
 const page = () => {
+  const OPTIONS: EmblaOptionsType = { align: "center", loop: true };
+  const SLIDE_COUNT = 6;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
+
   return (
     <main className="w-full max-w-7xl mx-auto px-4">
-      <section className="flex mt-16 flex-col justify-center w-full">
+      <section className="flex mt-10 md:mt-16 flex-col justify-center w-full">
         <div className="w-fit space-y-1">
           <h1 className="font-bold text-2xl">Sports</h1>
           <div className="h-[2px] rounded-full w-full bg-purple-line"></div>
@@ -30,7 +31,11 @@ const page = () => {
           {TeamData &&
             TeamData.slice(0, 4).map((team, index: number) => (
               <div
-                className={`${index === 3 ? "hidden md:block" : ""}`}
+                className={`${index === 3 ? "hidden xl:block" : ""}${
+                  index === 2 ? "block md:hidden lg:block" : ""
+                }
+
+                `}
                 key={index}
               >
                 <TeamCard

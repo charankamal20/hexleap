@@ -1,6 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
+/**
+ * Renders an advertisement card component.
+ * @param {Object} props - The component props.
+ * @param {string} props.image - The image source for the advertisement.
+ * @param {string} props.title - The title of the advertisement.
+ * @param {string} props.description - The description of the advertisement.
+ */
 const AdvertisementCard = (props: AdvertisementCard) => {
   return (
     <div className="text-black max-w-60 h-full bg-background-secondary p-2 dark:bg-background-dark-secondary w-full transition-all duration-500 hover:shadow-xl shadow-lg">

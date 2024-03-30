@@ -1,3 +1,6 @@
+/**
+ * Represents a collection card component.
+ */
 import Image from "next/image";
 import React from "react";
 
@@ -59,18 +62,16 @@ const Card = (
 );
 
 
+/**
+ * Collection card component.
+ * @param props - The component props.
+ * @returns The rendered collection card.
+ */
 const CollectionCard = (props: CollectionCard) => {
   return (
     <div className="group relative">
-      {/* <Image
-        width={257}
-        height={625}
-        src="/svgs/Subtract.svg"
-        alt="mage"
-        className="z-0 "
-      /> */}
       {Card}
-      <div className="absolute top-3 ">
+      <div className="absolute top-3">
         <div className="p-2 overflow-hidden">
           <Image
             width={226}
@@ -79,7 +80,7 @@ const CollectionCard = (props: CollectionCard) => {
             alt="Team Image"
             className="w-full z-10 object-cover"
           />
-          <div className="h-px border dark:border-background-dark border-gray-300 mx-5 border-dashed"></div>
+          <div className="xl:mt-3 h-px border dark:border-background-dark border-gray-300 mx-5 border-dashed"></div>
         </div>
         <div className="text-sm mt-3">
           <div className="w-full px-2 text-center">
