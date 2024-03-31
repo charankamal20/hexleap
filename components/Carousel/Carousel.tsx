@@ -13,6 +13,7 @@ import CollectionCard from "../CollectionCard";
 import Autoplay from "embla-carousel-autoplay";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "sonner";
 
 
 /**
@@ -56,7 +57,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     [emblaApi]
   );
 
-
   useEffect(() => {
     const fetchCollectionData = async () => {
       try {
@@ -74,6 +74,12 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         console.error({error});
       }
     }
+
+    setTimeout(() => {
+      toast("Hover over a component to view its tooltip.", {
+        description: 'Tooltips contain info about development process and features.',
+      });
+    }, 4000)
 
     fetchCollectionData();
   }, [])
