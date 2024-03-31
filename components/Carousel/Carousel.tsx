@@ -57,7 +57,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     [emblaApi]
   );
 
-
   useEffect(() => {
     const fetchCollectionData = async () => {
       try {
@@ -78,7 +77,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
     setTimeout(() => {
       toast("Hover over a component to view its tooltip.", {
-        description: 'Tooltips contain info about development process and features.'
+        description: 'Tooltips contain info about development process and features.',
       });
     }, 4000)
 
