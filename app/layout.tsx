@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import ToggleButton from "@/components/ThemeToggle";
 import Head from "next/head";
 import { Toaster } from "@/components/ui/sonner"
+import { Analytics } from "@vercel/analytics/react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <ToggleButton />
           {children}
+          <Analytics />
           <Toaster />
         </ThemeProvider>
       </body>
